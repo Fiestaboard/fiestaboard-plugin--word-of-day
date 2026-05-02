@@ -1,0 +1,82 @@
+{
+  "id": "word_of_day",
+  "name": "Word of the Day",
+  "version": "0.1.0",
+  "description": "Display a word, its pronunciation, and definition from the Free Dictionary API.",
+  "author": "FiestaBoard Team",
+  "icon": "book-open",
+  "category": "utility",
+  "repository": "https://github.com/Fiestaboard/fiestaboard-plugin--word-of-day",
+  "documentation": "README.md",
+  "min_refresh_seconds": 3600,
+  "settings_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "title": "Enabled",
+        "default": false
+      },
+      "custom_word": {
+        "type": "string",
+        "title": "Custom Word",
+        "description": "Leave blank to show a daily word from the built-in list, or enter a word to always show.",
+        "default": ""
+      },
+      "refresh_seconds": {
+        "type": "integer",
+        "title": "Refresh Interval (seconds)",
+        "description": "How often to refresh (once per day is sufficient).",
+        "default": 3600,
+        "minimum": 3600
+      }
+    },
+    "required": []
+  },
+  "variables": {
+    "groups": {
+      "word": {
+        "label": "Word"
+      }
+    },
+    "simple": {
+      "word": {
+        "description": "The word",
+        "type": "string",
+        "max_length": 20,
+        "group": "word",
+        "example": "ephemeral"
+      },
+      "part_of_speech": {
+        "description": "Part of speech (noun, verb, etc.)",
+        "type": "string",
+        "max_length": 12,
+        "group": "word",
+        "example": "adjective"
+      },
+      "definition": {
+        "description": "Short definition",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "lasting a short time"
+      },
+      "phonetic": {
+        "description": "Phonetic spelling",
+        "type": "string",
+        "max_length": 15,
+        "group": "word",
+        "example": "/\u026a\u02c8fem(\u0259)r(\u0259)l/"
+      }
+    }
+  },
+  "screenshots": [
+    {
+      "src": "docs/board-display.png",
+      "alt": "Word of the Day displayed on a Vestaboard",
+      "caption": "Example board output using the default template",
+      "primary": true
+    }
+  ],
+  "api_docs": "https://dictionaryapi.dev/"
+}
