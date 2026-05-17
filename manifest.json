@@ -1,7 +1,7 @@
 {
   "id": "word_of_day",
   "name": "Word of the Day",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Display a word, its pronunciation, and definition from the Free Dictionary API.",
   "author": "FiestaBoard Team",
   "icon": "book-open",
@@ -78,5 +78,66 @@
       "primary": true
     }
   ],
-  "api_docs": "https://dictionaryapi.dev/"
+  "api_docs": "https://dictionaryapi.dev/",
+  "demo": {
+    "flagship": {
+      "name": "Word of the Day",
+      "template": [
+        "Word of the Day",
+        "",
+        "{{word_of_day.word}}",
+        "{{word_of_day.part_of_speech}}",
+        "{{word_of_day.definition}}",
+        ""
+      ],
+      "line_metadata": [
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": true
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        }
+      ]
+    },
+    "note": {
+      "name": "Word of Day (Note)",
+      "template": [
+        "{{word_of_day.word}}",
+        "{{word_of_day.part_of_speech}}",
+        "{{word_of_day.definition}}"
+      ],
+      "line_metadata": [
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": true
+        }
+      ]
+    }
+  }
 }
