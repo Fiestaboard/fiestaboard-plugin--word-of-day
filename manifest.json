@@ -1,7 +1,7 @@
 {
   "id": "word_of_day",
   "name": "Word of the Day",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Display a word, its pronunciation, and definition from the Free Dictionary API.",
   "author": "FiestaBoard Team",
   "icon": "book-open",
