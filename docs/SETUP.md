@@ -1,10 +1,10 @@
 # Word of the Day Setup Guide
 
-Display a word, its pronunciation, and definition from the Free Dictionary API.
+Display a word, its pronunciation, definition, and translations from the Free Dictionary API.
 
 ## Overview
 
-The Word of the Day plugin fetches a word definition from dictionaryapi.dev. Because the API doesn't offer a daily-word endpoint, the plugin selects a word based on a curated list, cycling one per day. No API key required.
+The Word of the Day plugin fetches a word definition from dictionaryapi.dev and exposes translations in six languages. Because the API doesn't offer a daily-word endpoint, the plugin selects a word from a curated 365-word list, cycling one per day. No API key required.
 
 - API reference: https://dictionaryapi.dev/
 
@@ -30,6 +30,12 @@ No API key required.
 | `word_of_day.part_of_speech` | Part of speech (noun, verb, etc.) | `adjective` |
 | `word_of_day.definition` | Short definition | `lasting a short time` |
 | `word_of_day.phonetic` | Phonetic spelling | `/ɪˈfem(ə)r(ə)l/` |
+| `word_of_day.translation_es` | Spanish translation | `efimero` |
+| `word_of_day.translation_it` | Italian translation | `effimero` |
+| `word_of_day.translation_ja` | Japanese translation (romaji) | `hakanai` |
+| `word_of_day.translation_de` | German translation | `fluechtig` |
+| `word_of_day.translation_fr` | French translation | `ephemere` |
+| `word_of_day.translation_la` | Latin translation | `caducus` |
 
 ## Configuration Reference
 

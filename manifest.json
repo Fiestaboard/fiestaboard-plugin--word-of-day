@@ -1,7 +1,7 @@
 {
   "id": "word_of_day",
   "name": "Word of the Day",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Display a word, its pronunciation, and definition from the Free Dictionary API.",
   "author": "FiestaBoard Team",
   "icon": "book-open",
@@ -67,6 +67,48 @@
         "max_length": 15,
         "group": "word",
         "example": "/\u026a\u02c8fem(\u0259)r(\u0259)l/"
+      },
+      "translation_es": {
+        "description": "Spanish translation",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "efimero"
+      },
+      "translation_it": {
+        "description": "Italian translation",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "effimero"
+      },
+      "translation_ja": {
+        "description": "Japanese translation (romaji)",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "hakanai"
+      },
+      "translation_de": {
+        "description": "German translation",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "fluechtig"
+      },
+      "translation_fr": {
+        "description": "French translation",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "ephemere"
+      },
+      "translation_la": {
+        "description": "Latin translation",
+        "type": "string",
+        "max_length": 22,
+        "group": "word",
+        "example": "caducus"
       }
     }
   },

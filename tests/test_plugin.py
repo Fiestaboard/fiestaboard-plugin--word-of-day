@@ -8,7 +8,7 @@ from unittest.mock import patch, Mock
 
 import pytest
 
-from plugins.word_of_day import WordOfDayPlugin
+from word_of_day import WordOfDayPlugin
 from src.plugins.base import PluginResult
 
 MANIFEST = json.loads("""
@@ -92,7 +92,7 @@ class TestWordOfDayPlugin:
         for field in ("id", "name", "version"):
             assert field in m
 
-    @patch("plugins.word_of_day.requests.get")
+    @patch("word_of_day.requests.get")
     def test_fetch_data_success(self, mock_get, configured_plugin):
         mock_response = Mock()
         mock_response.json.return_value = SAMPLE_RESPONSE
@@ -108,8 +108,14 @@ class TestWordOfDayPlugin:
         assert "part_of_speech" in result.data, "missing variable: part_of_speech"
         assert "definition" in result.data, "missing variable: definition"
         assert "phonetic" in result.data, "missing variable: phonetic"
+        assert "translation_es" in result.data, "missing variable: translation_es"
+        assert "translation_it" in result.data, "missing variable: translation_it"
+        assert "translation_ja" in result.data, "missing variable: translation_ja"
+        assert "translation_de" in result.data, "missing variable: translation_de"
+        assert "translation_fr" in result.data, "missing variable: translation_fr"
+        assert "translation_la" in result.data, "missing variable: translation_la"
 
-    @patch("plugins.word_of_day.requests.get")
+    @patch("word_of_day.requests.get")
     def test_fetch_data_network_error(self, mock_get, configured_plugin):
         import requests as req_mod
         mock_get.side_effect = req_mod.exceptions.ConnectionError("network down")
@@ -119,7 +125,7 @@ class TestWordOfDayPlugin:
         assert result.available is False
         assert result.error is not None
 
-    @patch("plugins.word_of_day.requests.get")
+    @patch("word_of_day.requests.get")
     def test_fetch_data_bad_json(self, mock_get, configured_plugin):
         mock_response = Mock()
         mock_response.json.side_effect = ValueError("bad json")
