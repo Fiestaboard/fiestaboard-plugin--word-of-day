@@ -1,17 +1,21 @@
-"""Display a word, its pronunciation, and definition from the Free Dictionary API."""
+"""Display a word, its pronunciation, definition, and translations."""
 
 from __future__ import annotations
 
+import datetime
 import logging
 from typing import Any, Dict, List
+
 import requests
 
 from src.plugins.base import PluginBase, PluginResult
+from words import WORD_LIST
 
 logger = logging.getLogger(__name__)
 
-API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
 USER_AGENT = "FiestaBoard Word of the Day Plugin (https://github.com/Fiestaboard/fiestaboard-plugin--word-of-day)"
+
+_WORD_INDEX = {entry["word"]: entry for entry in WORD_LIST}
 
 
 class WordOfDayPlugin(PluginBase):
@@ -22,26 +26,15 @@ class WordOfDayPlugin(PluginBase):
         return "word_of_day"
 
     def fetch_data(self) -> PluginResult:
-        import datetime
-
-        # Curated word list — one word cycles per day
-        WORD_LIST = [
-            "ephemeral", "serendipity", "luminous", "quixotic", "mellifluous",
-            "perspicacious", "ebullient", "surreptitious", "idyllic", "veracious",
-            "eloquent", "fortuitous", "ineffable", "penultimate", "sanguine",
-            "vivacious", "tenacious", "ubiquitous", "paradox", "nostalgia",
-            "ethereal", "magnanimous", "loquacious", "resilient", "altruistic",
-            "benevolent", "candid", "diligent", "erudite", "fervent",
-            "gregarious", "humble", "inquisitive", "jovial", "kinetic",
-        ]
-
         try:
             custom_word = (self.config.get("custom_word") or "").strip().lower()
             if custom_word:
                 word = custom_word
+                word_entry = _WORD_INDEX.get(custom_word)
             else:
                 day_of_year = datetime.date.today().timetuple().tm_yday
-                word = WORD_LIST[day_of_year % len(WORD_LIST)]
+                word_entry = WORD_LIST[(day_of_year - 1) % len(WORD_LIST)]
+                word = word_entry["word"]
 
             url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
             response = requests.get(
@@ -67,15 +60,20 @@ class WordOfDayPlugin(PluginBase):
                 if defs:
                     definition = str(defs[0].get("definition", ""))[:22]
 
-            return PluginResult(
-                available=True,
-                data={
-                    "word": word,
-                    "part_of_speech": part_of_speech,
-                    "definition": definition,
-                    "phonetic": phonetic,
-                },
-            )
+            data: Dict[str, Any] = {
+                "word": word,
+                "part_of_speech": part_of_speech,
+                "definition": definition,
+                "phonetic": phonetic,
+                "translation_es": word_entry["es"] if word_entry else "",
+                "translation_it": word_entry["it"] if word_entry else "",
+                "translation_ja": word_entry["ja"] if word_entry else "",
+                "translation_de": word_entry["de"] if word_entry else "",
+                "translation_fr": word_entry["fr"] if word_entry else "",
+                "translation_la": word_entry["la"] if word_entry else "",
+            }
+
+            return PluginResult(available=True, data=data)
         except Exception as e:
             logger.exception("Error fetching word of the day")
             return PluginResult(available=False, error=str(e))
@@ -85,3 +83,6 @@ class WordOfDayPlugin(PluginBase):
 
     def cleanup(self) -> None:
         pass
+
+
+Plugin = WordOfDayPlugin
