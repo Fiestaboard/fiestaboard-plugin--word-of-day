@@ -1,6 +1,6 @@
 # Word of the Day Plugin
 
-Display a word, its pronunciation, and definition from the Free Dictionary API.
+Display a word, its pronunciation, definition, and translations from the Free Dictionary API.
 
 ![Word of the Day Display](./docs/board-display.png)
 
@@ -8,7 +8,7 @@ Display a word, its pronunciation, and definition from the Free Dictionary API.
 
 ## Overview
 
-The Word of the Day plugin fetches a word definition from dictionaryapi.dev. Because the API doesn't offer a daily-word endpoint, the plugin selects a word based on a curated list, cycling one per day. No API key required.
+The Word of the Day plugin fetches a word definition from dictionaryapi.dev and exposes translations in six languages. Because the API doesn't offer a daily-word endpoint, the plugin selects a word from a curated 365-word list, cycling one per day. No API key required.
 
 ## Template Variables
 
@@ -18,6 +18,12 @@ The Word of the Day plugin fetches a word definition from dictionaryapi.dev. Bec
 | `word_of_day.part_of_speech` | Part of speech (noun, verb, etc.) | `adjective` |
 | `word_of_day.definition` | Short definition | `lasting a short time` |
 | `word_of_day.phonetic` | Phonetic spelling | `/ɪˈfem(ə)r(ə)l/` |
+| `word_of_day.translation_es` | Spanish translation | `efimero` |
+| `word_of_day.translation_it` | Italian translation | `effimero` |
+| `word_of_day.translation_ja` | Japanese translation (romaji) | `hakanai` |
+| `word_of_day.translation_de` | German translation | `fluechtig` |
+| `word_of_day.translation_fr` | French translation | `ephemere` |
+| `word_of_day.translation_la` | Latin translation | `caducus` |
 
 ## Example Templates
 
@@ -30,6 +36,14 @@ WORD OF THE DAY
 
 ```
 
+```
+{{word_of_day.word}}
+ES: {{word_of_day.translation_es}}
+FR: {{word_of_day.translation_fr}}
+DE: {{word_of_day.translation_de}}
+
+```
+
 ## Configuration
 
 | Setting | Name | Description | Required |
@@ -39,7 +53,8 @@ WORD OF THE DAY
 ## Features
 
 - Free Dictionary API (no API key)
-- Daily word rotation from curated list
+- 365-word curated list — one full year of daily rotation
+- Translations in Spanish, Italian, Japanese (romaji), German, French, and Latin
 - Custom word override
 - Part of speech and phonetic
 
