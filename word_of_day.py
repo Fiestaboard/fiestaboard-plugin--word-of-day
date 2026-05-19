@@ -58,7 +58,7 @@ class WordOfDayPlugin(PluginBase):
                 part_of_speech = str(meaning.get("partOfSpeech", ""))[:12]
                 defs = meaning.get("definitions", [])
                 if defs:
-                    definition = str(defs[0].get("definition", ""))[:22]
+                    definition = str(defs[0].get("definition", ""))
 
             data: Dict[str, Any] = {
                 "word": word,

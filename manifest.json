@@ -1,7 +1,7 @@
 {
   "id": "word_of_day",
   "name": "Word of the Day",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Display a word, its pronunciation, and definition from the Free Dictionary API.",
   "author": "FiestaBoard Team",
   "icon": "book-open",
@@ -55,11 +55,10 @@
         "example": "adjective"
       },
       "definition": {
-        "description": "Short definition",
+        "description": "Definition of the word",
         "type": "string",
-        "max_length": 22,
         "group": "word",
-        "example": "lasting a short time"
+        "example": "lasting for a very short time"
       },
       "phonetic": {
         "description": "Phonetic spelling",
