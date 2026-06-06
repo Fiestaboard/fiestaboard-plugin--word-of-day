@@ -49,13 +49,13 @@ class WordOfDayPlugin(PluginBase):
                 return PluginResult(available=False, error=f"No definition found for '{word}'")
 
             entry = entries[0]
-            phonetic = str(entry.get("phonetic", ""))[:15]
+            phonetic = str(entry.get("phonetic", ""))
             meanings = entry.get("meanings", [])
             part_of_speech = ""
             definition = ""
             if meanings:
                 meaning = meanings[0]
-                part_of_speech = str(meaning.get("partOfSpeech", ""))[:12]
+                part_of_speech = str(meaning.get("partOfSpeech", ""))
                 defs = meaning.get("definitions", [])
                 if defs:
                     definition = str(defs[0].get("definition", ""))
