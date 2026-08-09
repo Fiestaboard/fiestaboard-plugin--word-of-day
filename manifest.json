@@ -65,7 +65,7 @@
         "type": "string",
         "max_length": 15,
         "group": "word",
-        "example": "/\u026a\u02c8fem(\u0259)r(\u0259)l/"
+        "example": "/ɪˈfem(ə)r(ə)l/"
       },
       "translation_es": {
         "description": "Spanish translation",
@@ -117,6 +117,28 @@
       "alt": "Word of the Day displayed on a Vestaboard",
       "caption": "Example board output using the default template",
       "primary": true
+    }
+  ],
+  "teaser": "EPHEMERAL",
+  "previews": [
+    {
+      "device_type": "flagship",
+      "rows": [
+        "Word of the Day",
+        "",
+        "ephemeral",
+        "adjective",
+        "lasting for a very",
+        "short time"
+      ]
+    },
+    {
+      "device_type": "note",
+      "rows": [
+        "{68}{68} WORD OF DAY",
+        "EPHEMERAL",
+        "ADJ. FLEETING"
+      ]
     }
   ],
   "api_docs": "https://dictionaryapi.dev/",
