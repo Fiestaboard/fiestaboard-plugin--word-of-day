@@ -1,12 +1,12 @@
 # Word of the Day Setup Guide
 
-Display a word, its pronunciation, definition, and translations from the Free Dictionary API.
+Display a word, its pronunciation, definition, and translations from Wiktionary.
 
 ## Overview
 
-The Word of the Day plugin fetches a word definition from dictionaryapi.dev and exposes translations in six languages. Because the API doesn't offer a daily-word endpoint, the plugin selects a word from a curated 365-word list, cycling one per day. No API key required.
+The Word of the Day plugin fetches a word definition from Wiktionary and exposes translations in six languages. Because the API doesn't offer a daily-word endpoint, the plugin selects a word from a curated 365-word list, cycling one per day. No API key required.
 
-- API reference: https://dictionaryapi.dev/
+- API reference: https://en.wiktionary.org/api/rest_v1/
 
 ### Prerequisites
 
@@ -47,6 +47,6 @@ No API key required.
 
 ## Troubleshooting
 
-- **Word not found** — the Free Dictionary API doesn't cover all words. Try a common word.
+- **Blank definition** — the word and translations still show, but Wiktionary had no English entry or was unreachable. Try a common word, or wait for the next refresh.
 - **Always same word** — check if `custom_word` is set. Clear it for daily rotation.
 
