@@ -1,8 +1,8 @@
 {
   "id": "word_of_day",
   "name": "Word of the Day",
-  "version": "0.2.1",
-  "description": "Display a word, its pronunciation, and definition from the Free Dictionary API.",
+  "version": "0.3.0",
+  "description": "Display a word, its pronunciation, and definition from Wiktionary.",
   "author": "FiestaBoard Team",
   "icon": "book-open",
   "category": "utility",
@@ -141,7 +141,7 @@
       ]
     }
   ],
-  "api_docs": "https://dictionaryapi.dev/",
+  "api_docs": "https://en.wiktionary.org/api/rest_v1/",
   "demo": {
     "flagship": {
       "name": "Word of the Day",

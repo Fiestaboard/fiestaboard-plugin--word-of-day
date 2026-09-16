@@ -1,6 +1,6 @@
 # Word of the Day Plugin
 
-Display a word, its pronunciation, definition, and translations from the Free Dictionary API.
+Display a word, its pronunciation, definition, and translations from Wiktionary.
 
 ![Word of the Day Display](./docs/board-display.png)
 
@@ -8,7 +8,9 @@ Display a word, its pronunciation, definition, and translations from the Free Di
 
 ## Overview
 
-The Word of the Day plugin fetches a word definition from dictionaryapi.dev and exposes translations in six languages. Because the API doesn't offer a daily-word endpoint, the plugin selects a word from a curated 365-word list, cycling one per day. No API key required.
+The Word of the Day plugin fetches a word definition from Wiktionary and exposes translations in six languages. Because the API doesn't offer a daily-word endpoint, the plugin selects a word from a curated 365-word list, cycling one per day. No API key required.
+
+The word and its translations come from the built-in list, so they still display if the definition lookup fails.
 
 ## Template Variables
 
@@ -52,7 +54,7 @@ DE: {{word_of_day.translation_de}}
 
 ## Features
 
-- Free Dictionary API (no API key)
+- Wiktionary API (no API key)
 - 365-word curated list — one full year of daily rotation
 - Translations in Spanish, Italian, Japanese (romaji), German, French, and Latin
 - Custom word override
